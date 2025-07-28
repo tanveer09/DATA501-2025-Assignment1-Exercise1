@@ -1,5 +1,8 @@
 library(Rcpp)
 
+# Last 3 digit of your student id 
+student_number <- 100
+
 cppFunction('double my_function_A(Rcpp::NumericVector x) {
   int n = x.size();
   if (n < 2) {
@@ -32,9 +35,8 @@ cppFunction('double my_function_B(Rcpp::NumericVector x) {
 }')
 
 
-
 # Read from Data-set
-sample2 <- read.csv(paste(folder,"Data501_Dataset_Assignment1.csv"))
+sample2 <- read.csv(paste("Data501_Dataset_Assignment1.csv")) + student_number
 
 
 # Convert to the correct format
@@ -42,14 +44,17 @@ sample3 <- as.numeric(sample2[[1]])
 
 
 # Test my_function A
-my_function_A(sample3)
+valA <- my_function_A(sample3)
 
 
 # Test my_function B
-my_function_B(sample3)
+valB <- my_function_B(sample3)
 
 
-print(paste("Function A Results: ", my_function_A(sample3)))
-
+# Create Output
+print(paste("Function A Results: ",  my_function_A(sample3)))
 print(paste("Function B Results: ",  my_function_B(sample3)))
 
+
+print(paste("Mean: ",  mean(sample3)))
+print(paste("Variance: ",  var(sample3)))
