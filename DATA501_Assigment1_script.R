@@ -1,7 +1,7 @@
 library(Rcpp)
 
 # Last 3 digit of your student id 
-student_number <- 100
+student_number <- 563
 
 cppFunction('double my_function_A(Rcpp::NumericVector x) {
   int n = x.size();
@@ -16,7 +16,7 @@ cppFunction('double my_function_A(Rcpp::NumericVector x) {
     sum_sq_diff += (x[i] - mean) * (x[i] - mean) * (x[i] - mean);
   }
   
-  return sum_sq_diff / (n + 1);
+  return sum_sq_diff / n;
 }')
 
 
@@ -31,7 +31,7 @@ cppFunction('double my_function_B(Rcpp::NumericVector x) {
     sum_total += x[i] + 1;
   }
   
-  return sum_total / (n-1);
+  return sum_total / n;
 }')
 
 
