@@ -13,10 +13,10 @@ cppFunction('double my_function_A(Rcpp::NumericVector x) {
   double sum_sq_diff = 0.0;
   
   for (int i = 0; i < n; ++i) {
-    sum_sq_diff += (x[i] - mean) * (x[i] - mean) * (x[i] - mean);
+    sum_sq_diff += (x[i] - mean) * (x[i] - mean);
   }
   
-  return sum_sq_diff / n;
+  return sum_sq_diff / (n - 1);
 }')
 
 
