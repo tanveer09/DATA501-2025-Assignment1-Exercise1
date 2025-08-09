@@ -58,3 +58,5 @@ print(paste("Function B Results: ",  my_function_B(sample3)))
 
 print(paste("Mean: ",  mean(sample3)))
 print(paste("Variance: ",  var(sample3)))
+
+# Q1c: created FFA and FFB branches
