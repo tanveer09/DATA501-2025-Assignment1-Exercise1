@@ -28,7 +28,7 @@ cppFunction('double my_function_B(Rcpp::NumericVector x) {
   double sum_total = 0;
   
   for (int i = 0; i < n; ++i) {
-    sum_total += x[i] + 1;
+    sum_total += x[i];
   }
   
   return sum_total / n;
